@@ -1,17 +1,135 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>MediBridge ~ {% block title %}{% endblock title %}</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-<!-- navbar start -->
- {% include "include/header" %}
-<!-- navbar end -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- FontAwesome (for icons) -->
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="MediBridge - Your complete healthcare management system. Book appointments, consult doctors, and access hospital details.">
+    <meta name="keywords" content="healthcare, MediBridge, doctor appointments, hospital management">
+</head>
+<body>
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="/">
+          <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Left Side Menu -->
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Appointments</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Doctors</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+              </li>
+          </ul>
+
+          <!-- Search Bar -->
+          <form class="d-flex search-form">
+              <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit">
+                  <i class="fas fa-search"></i> Search
+              </button>
+          </form>
+
+          <!-- Authentication Dropdown -->
+          <ul class="navbar-nav ms-auto">
+              <!-- Login Dropdown -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                      <li><a class="dropdown-item" href="">Admin</a></li>
+                      <li><a class="dropdown-item" href="">Doctor</a></li>
+                      <li><a class="dropdown-item" href="">Patient</a></li>
+                  </ul>
+              </li>
+
+              <!-- Register Dropdown -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="registerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Register
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                      <li><a class="dropdown-item" href="">Admin</a></li>
+                      <li><a class="dropdown-item" href="">Doctor</a></li>
+                      <li><a class="dropdown-item" href="">Patient</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+
+
+    <!-- Slider Section -->
+    {% block slider %}
+    {% endblock slider %}
+
+    <!-- Hospital Live Details -->
+    {% block live-detail %}
+    {% endblock live-detail %}
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        {% block main-content %}
+        {% endblock main-content %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; 2025 MediBridge. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- jQuery (Required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7V4lYJ4OYO5Rn5E2+z5p5k5ep5nQd6vQm4" crossorigin="anonymous"></script>
+
+    <!-- Popper.js (Required for Bootstrap) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" 
+            integrity="sha384-oBqDVmMz4fnFO9gybBogGzJp83+3zX8P8Xv5a7rO8j1lpmfxpPbZ7ujWJc/KrY5X" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Bundle (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+
+</body>
 </html>
